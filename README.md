@@ -1,2 +1,2 @@
 # TNM084
-Shaders are fun!
+Procedurella metoder för bilder. Shaders are fun!
