@@ -15,7 +15,7 @@ public class ShaderMain {
 		
 		// Instantiate a JFrame and set it up.
 		JFrame frame = new JFrame();
-		frame.setTitle("Shader demo");
+		//frame.setTitle("Shader demo");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Add the content pane, we use only a single ShaderPanel here
@@ -23,11 +23,16 @@ public class ShaderMain {
 		frame.add(panel);
 		
 		// Create and associate a Shader with the ShaderPanel
-		panel.myShader = new DemoShader();
+		//panel.myShader = new DemoShader();
+		panel.myShader = new AntShader(true);
 
 		// Pack and display the window
 		frame.pack();
 		frame.setVisible(true);
+		
+		// Marcus' re-hack
+		frame.setResizable(false);
+		frame.setTitle("Bruce, shame on you!");
 
 		// Create and start the animation thread
 		Thread animationThread = new Thread(panel);

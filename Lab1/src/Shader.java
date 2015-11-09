@@ -9,5 +9,8 @@
 abstract class Shader {
 
 	abstract void shader(double[] p, double u, double v, double t);
-
+	
+	public double clamp(double value){
+		return Math.max(0.0, Math.min(1.0, value));
+	}
 }
