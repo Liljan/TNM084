@@ -24,7 +24,8 @@ public class ShaderMain {
 		
 		// Create and associate a Shader with the ShaderPanel
 		//panel.myShader = new DemoShader();
-		panel.myShader = new AntShader(true);
+		//panel.myShader = new AntShader(true);
+		panel.myShader = new CirclesShader();
 
 		// Pack and display the window
 		frame.pack();
