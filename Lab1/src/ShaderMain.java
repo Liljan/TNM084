@@ -32,7 +32,10 @@ public class ShaderMain {
 		//panel.myShader = new GradientShader();
 		//panel.myShader = new SmokeShader();
 		//panel.myShader = new FireShader();
-		panel.myShader = new SineShader();
+		//panel.myShader = new SineShader();
+		//panel.myShader = new DrugsShader();
+		//panel.myShader = new LavaShader();
+		panel.myShader = new WorleyShader();
 
 		// Pack and display the window
 		frame.pack();
