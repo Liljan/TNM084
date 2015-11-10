@@ -32,7 +32,7 @@ public class ShaderMain {
 		//panel.myShader = new GradientShader();
 		//panel.myShader = new SmokeShader();
 		//panel.myShader = new FireShader();
-		//panel.myShader = new SineShader();
+		panel.myShader = new SineShader();
 
 		// Pack and display the window
 		frame.pack();
