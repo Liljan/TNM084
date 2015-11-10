@@ -1,4 +1,6 @@
-import com.sun.javafx.geom.*;
+import com.sun.javafx.*;
+
+
 
 public class CirclesShader extends Shader {
 	private Vec2d pos;

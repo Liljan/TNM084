@@ -8,5 +8,4 @@ public class GradientShader extends MarcusShader{
 		p[1] = v;
 		p[2] = sint(t);
 	}
-
 }

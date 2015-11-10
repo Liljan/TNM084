@@ -1,5 +1,5 @@
 
-public class AntShader extends Shader {
+public class AntShader extends MarcusShader {
 
 	// The war of the ants has begun
 

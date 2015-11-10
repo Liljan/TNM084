@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class ShaderMain {
 	
-	static final int WIDTH = 1280;
+	static final int WIDTH = 512;
 	static final int HEIGHT = (int) (WIDTH / 1.77777777778);
 
 	// Entry point for the application
@@ -27,9 +27,12 @@ public class ShaderMain {
 		
 		// Create and associate a Shader with the ShaderPanel
 		//panel.myShader = new DemoShader();
-		//panel.myShader = new AntShader(true);
+		//panel.myShader = new AntShader(false);
 		//panel.myShader = new CirclesShader();
-		panel.myShader = new GradientShader();
+		//panel.myShader = new GradientShader();
+		//panel.myShader = new SmokeShader();
+		//panel.myShader = new FireShader();
+		//panel.myShader = new SineShader();
 
 		// Pack and display the window
 		frame.pack();
