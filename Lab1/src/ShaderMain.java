@@ -9,6 +9,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class ShaderMain {
+	
+	static final int WIDTH = 1280;
+	static final int HEIGHT = (int) (WIDTH / 1.77777777778);
 
 	// Entry point for the application
 	public static void main(String[] args) {
@@ -19,13 +22,14 @@ public class ShaderMain {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		// Add the content pane, we use only a single ShaderPanel here
-		ShaderPanel panel = new ShaderPanel(512, 512);
+		ShaderPanel panel = new ShaderPanel(WIDTH, HEIGHT);
 		frame.add(panel);
 		
 		// Create and associate a Shader with the ShaderPanel
 		//panel.myShader = new DemoShader();
 		//panel.myShader = new AntShader(true);
-		panel.myShader = new CirclesShader();
+		//panel.myShader = new CirclesShader();
+		panel.myShader = new GradientShader();
 
 		// Pack and display the window
 		frame.pack();
