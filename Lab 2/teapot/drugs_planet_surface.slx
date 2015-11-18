@@ -1,0 +1,64 @@
+surface
+AQSIS_V 2
+
+
+segment Data
+
+USES 133376
+
+varying  float oceanblend
+varying  color groundcolor
+varying  color oceancolor
+varying  color Cd
+
+
+segment Init
+
+
+segment Code
+	pushif 0
+	pop oceanblend
+	pushv P
+	pushif 13
+	mulfp
+	cnoise3
+	pop groundcolor
+	pushv P
+	pushif 2
+	mulfp
+	cnoise3
+	pushif 1
+	pushif 0
+	pushif 0.200000003
+	settc
+	mulcc
+	pop oceancolor
+	S_CLEAR
+	pushif 1
+	pushis "oceanblend"
+	displacement oceanblend
+	eqff
+	S_GET
+	RS_PUSH
+	RS_GET
+	RS_JZ 1
+	pushv oceanblend
+	pushv oceancolor
+	pushv groundcolor
+	cmix
+	pop Cd
+:1
+	RS_INVERSE
+	RS_JZ 0
+	pushif 0
+	pushif 0
+	pushif 1
+	settc
+	pop Cd
+:0
+	RS_POP
+	pushv N
+	diffuse
+	pushv Cd
+	mulcc
+	pop Ci
