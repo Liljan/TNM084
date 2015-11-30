@@ -1,17 +1,17 @@
 // A simple SL surface shader to render a planet-like sphere
 surface Mustafar_surface() {
 
-	color colorLava = color(0.9,0.1,0.0);
-	color colorLavaGlow = (1.0,1.0,0.0);
+	color colorLava = color(1.0,0.1,0.0);
+	color colorLavaGlow = color (1.0,1.0,0.0);
 	color colorMtn1 = color(0.05,0.01,0.03);
-	color colorMtn2 = color(0.4,0.30,0.34);
+	color colorMtn2 = color(0.30,0.3,0.30);
 	
 	color mixLava = mix(colorLava,colorLavaGlow, float noise(9*P)*0.8);
-	mixLava += specular(N,normalize(-I), 0.05);		//specularity in lava
+	mixLava += specular(N,normalize(-I), 0.05);		//specularity for lava
 	color mixMtn = mix(colorMtn1,colorMtn2, float noise(P));
-	//mixMtn += specular(N,normalize(-I), 0.01);	//specularity for mountains
 	
 	float surfaceLevel = 0.0;
+	Os = 1.0;
 	
 	// output color
 	color colorDiffuse;	// diffuse color
@@ -26,5 +26,11 @@ surface Mustafar_surface() {
 		colorDiffuse = colorLava;
 	}
 	
-	Ci = colorDiffuse * diffuse(N);	//diffuse shading.
+	
+	if(surfaceLevel < 0.0)
+	{
+		Os = 0.6;
+	}
+	
+	Ci = colorDiffuse * Os * diffuse(N);	//diffuse shading.
 }

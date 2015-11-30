@@ -1,0 +1,184 @@
+displacement
+AQSIS_V 2
+
+
+segment Data
+
+USES 2304
+
+output param varying  float surfaceLevel
+varying  float minElevation
+varying  float frq
+varying  float dmp
+varying  float altitude_modifier
+varying  float elevation
+
+
+segment Init
+	pushif 0
+	pop surfaceLevel
+
+
+segment Code
+	pushif 0.5
+	negf
+	pop minElevation
+	pushif 4
+	pop frq
+	pushif 0.5
+	pop dmp
+	pushif 0.150000006
+	pop altitude_modifier
+	pushv dmp
+	pushv P
+	pushv frq
+	mulfp
+	noise3
+	subff
+	pop elevation
+	pushv dmp
+	pushv P
+	pushv frq
+	pushif 2
+	mulff
+	mulfp
+	noise3
+	subff
+	pushif 2
+	pushif 1
+	divff
+	mulff
+	pushv elevation
+	addff
+	pop elevation
+	pushv dmp
+	pushv P
+	pushv frq
+	pushif 4
+	mulff
+	mulfp
+	noise3
+	subff
+	pushif 4
+	pushif 1
+	divff
+	mulff
+	pushv elevation
+	addff
+	pop elevation
+	pushv dmp
+	pushv P
+	pushv frq
+	pushif 8
+	mulff
+	mulfp
+	noise3
+	subff
+	pushif 8
+	pushif 1
+	divff
+	mulff
+	pushv elevation
+	addff
+	pop elevation
+	pushv dmp
+	pushv P
+	pushv frq
+	pushif 16
+	mulff
+	mulfp
+	noise3
+	subff
+	pushif 16
+	pushif 1
+	divff
+	mulff
+	pushv elevation
+	addff
+	pop elevation
+	pushv dmp
+	pushv P
+	pushv frq
+	pushif 32
+	mulff
+	mulfp
+	noise3
+	subff
+	pushif 32
+	pushif 1
+	divff
+	mulff
+	pushv elevation
+	addff
+	pop elevation
+	pushv dmp
+	pushv P
+	pushv frq
+	pushif 64
+	mulff
+	mulfp
+	noise3
+	subff
+	pushif 64
+	pushif 1
+	divff
+	mulff
+	pushv elevation
+	addff
+	pop elevation
+	S_CLEAR
+	pushif 0
+	pushv elevation
+	eqff
+	S_GET
+	RS_PUSH
+	RS_GET
+	RS_JZ 1
+	pushif 0
+	pop surfaceLevel
+:1
+	RS_INVERSE
+	RS_JZ 0
+	S_CLEAR
+	pushif 0
+	pushv elevation
+	lsff
+	S_GET
+	RS_PUSH
+	RS_GET
+	RS_JZ 3
+	pushif 1
+	negf
+	pop surfaceLevel
+:3
+	RS_INVERSE
+	RS_JZ 2
+	S_CLEAR
+	pushif 0
+	pushv elevation
+	gtff
+	S_GET
+	RS_PUSH
+	RS_GET
+	RS_JZ 4
+	pushif 1
+	pop surfaceLevel
+:4
+	RS_POP
+:2
+	RS_POP
+:0
+	RS_POP
+	pushv elevation
+	setfp
+	pushv altitude_modifier
+	setfp
+	pushv N
+	mulpp
+	mulpp
+	pushv P
+	addpp
+	pop P
+	pushv P
+	calculatenormal
+	pop N
