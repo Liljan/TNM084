@@ -2,11 +2,11 @@
 surface Mustafar_surface() {
 
 	color colorLava = color(1.0,0.1,0.0);
-	color colorLavaGlow = color (1.0,1.0,0.0);
+	color colorLavaGlow = color (0.8,0.8,0.0);
 	color colorMtn1 = color(0.05,0.01,0.03);
-	color colorMtn2 = color(0.30,0.3,0.30);
+	color colorMtn2 = color(0.2,0.2,0.2);
 	
-	color mixLava = mix(colorLava,colorLavaGlow, float noise(9*P)*0.8);
+	color mixLava = mix(colorLava, float noise(2*P) * colorLavaGlow, float noise(9*P)*0.8);
 	mixLava += specular(N,normalize(-I), 0.05);		//specularity for lava
 	color mixMtn = mix(colorMtn1,colorMtn2, float noise(P));
 	

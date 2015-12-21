@@ -21,7 +21,6 @@ Identity
 
 AttributeBegin
 
-  #Color [1.0 0.6 0.0] # A nice orange color
   # Displacement bounds, important for correct rendering
   Attribute "displacementbound" "float sphere" [0.2] "coordinatesystem" ["shader"]
   Surface "Mustafar_surface"
@@ -34,6 +33,7 @@ AttributeBegin
 AttributeEnd
 
 AttributeBegin
+	#unfinished background stars
 	Surface "Stars_surface"
 	Polygon "P" [-3 -3 3 3 -3 3 3 3 3 -3 3 3] "st" [0 1 0 0 1 0 1 1]
 	
